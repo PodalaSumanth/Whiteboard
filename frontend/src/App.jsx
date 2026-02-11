@@ -2,6 +2,8 @@ import { useEffect, useState, useCallback, useMemo } from "react";
 import { io } from "socket.io-client";
 import Canvas from "./components/Canvas";
 import Toolbar from "./components/Toolbar";
+import Header from "./components/Header";
+import ZoomControls from "./components/ZoomControls";
 import "./App.css";
 
 export default function App() {
@@ -90,10 +92,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>🎨 Collaborative Whiteboard</h1>
-        <p className="room-info">Room: {roomId}</p>
-      </header>
+      <Header />
       <div className="app-content">
         <Toolbar
           currentTool={currentTool}
@@ -118,6 +117,7 @@ export default function App() {
           />
         )}
       </div>
+      <ZoomControls />
     </div>
   );
 }
